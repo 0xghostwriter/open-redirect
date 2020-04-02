@@ -19,10 +19,10 @@ payloadlist = sys.argv[2]
 
 
 def log_results(URL,result):
-		print "\n\n\n\n\n\n[*]*****Open Redirect Found*****[*]"
-		print "[*]"+URL+"[*]"
-		print "[*]Redirects to: "+result+"[*]"
-		print "\n\n\n\n"
+		print("\n\n\n\n\n\n[*]*****Open Redirect Found*****[*]")
+		print("[*]"+URL+"[*]")
+		print("[*]Redirects to: "+result+"[*]")
+		print("\n\n\n\n")
 		file = open("found.txt","a") 
 		file.write(""+URL+"\n")
 		file.close() 
@@ -51,7 +51,7 @@ def test_redirect(url,payload):
 	
 
 	if found == False:
-		print "[*]Open Redirect NOT  Found for "+URL+"[*]"
+		print("[*]Open Redirect NOT  Found for "+URL+"[*]")
 
 		
 
@@ -60,13 +60,13 @@ def main(urllist,payloadlist):
 
 	with open(urllist) as f:
 		os.system('clear')
-		print "\n\n\n\n"
-		print "[*] ***************************************[*]"
-		print "[*] Open Redirect Finder By @Random_Robbie [*]"
-		print "[*] ***************************************[*]"
-		print "\n\n"
+		print("\n\n\n\n")
+		print("[*] ***************************************[*]")
+		print("[*] Open Redirect Finder By @Random_Robbie [*]")
+		print("[*] ***************************************[*]")
+		print("\n\n")
 		sleep (2)
-		print "[*] Searching for Open Redirects [*]\n\n"
+		print("[*] Searching for Open Redirects [*]\n\n")
 		for line in f:
 			line = line.replace("\r\n","")
 			line = line.replace ("\n","")
@@ -79,7 +79,7 @@ def main(urllist,payloadlist):
 						test_redirect(url,payload)
 					except Exception as e:
 						pass
-						print "[*]Debug: "+url+" & Payload "+payload+" [*]"
+						print("[*]Debug: "+url+" & Payload "+payload+" [*]")
 						print('Error: %s' % e)
 						pass
 			
@@ -87,8 +87,8 @@ def main(urllist,payloadlist):
 						
 try:
 	main(urllist,payloadlist)
-	print "[*]Finished Every Payload.... No Open Redirect Found[*]"
+	print("[*]Finished Every Payload.... No Open Redirect Found[*]")
 except Exception as e:
-		print (e)
+		print(e)
 		print('Error: %s' % e)
 		sys.exit(1)
